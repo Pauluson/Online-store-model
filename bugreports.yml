@@ -11,7 +11,7 @@
     Оторажается картинка флага английского языка
   actual-result: |
     Картинка флага не отображается
-    Скриншот приложен в папке bugreports\language_bug.png
+    Скриншот приложен в папке bugreports\v1\language_bug.png
 
 - summary: |
     Товар, добавленный в корзину не отображается, после повторного захода на сайт
@@ -39,7 +39,7 @@
     Прозошел редирект на главную страницу
   actual-result: |
     Редирект не выполнен, отображается header и footer сайта
-    Скриншот приложен в папке bugreports\redirect_bug.png
+    Скриншот приложен в папке bugreports\v1\redirect_bug.png
   
   - summary: |
     Нет возможности сбросить или очистить фильтр «Category»
@@ -84,7 +84,7 @@
     Отображаются товары, стоимость которых входит в граничные значения, с учетом скидки
   actual-result: |
     Отображаются товары без учета скидки
-    Скриншот приложен в папке bugreports\price_filter_bug.png
+    Скриншот приложен в папке bugreports\v1\price_filter_bug.png
   
   - summary: |
     Едет верстка в спике товаров на странице корзины
@@ -98,7 +98,7 @@
     Верстка страницы корзины отображается корректно
   actual-result: |
     В списке товаров, колчиство товара отображается не равномерно
-    Скриншот приложен в папке bugreports\list_of_car_bug.png
+    Скриншот приложен в папке bugreports\v1\list_of_car_bug.png
   
   - summary: |
     Невозможно закрыть карточку заказа по нажатию на крестик
@@ -126,4 +126,33 @@
     Все отображается корректно
   actual-result: |
     Количество товаров в колонке отображается не равномерно
-    Скриншот приложен в папке bugreports\order_list_bug.png
+    Скриншот приложен в папке bugreports\v1\order_list_bug.png
+  
+  - summary: |
+    Едет верстка в карточке товара при большом описании
+  environment: |
+    Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
+    ОС Windows 10
+  steps-to-reproduce: |
+    1. Открыть страницу с товарами
+    2. Найти товар с названием «TC Reusable Silicone Magic Washing Gloves»
+  expected-result: |
+    Все отображается корректно
+  actual-result: |
+    Кнопка «Add to cart» вышла за рамки карточки
+    Скриншот приложен в папке bugreports\v1\card_bug.png
+
+  - summary: |
+    Едет верстка при ширине экрана меньше 990px
+  environment: |
+    Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
+    ОС Windows 10
+  steps-to-reproduce: |
+    1. Открыть страницу с товарами
+    2. Открыть DevTools
+    3. Выбрать разрешение экрана 990px
+  expected-result: |
+    Присутсвует адаптивность страницы на все разрешения
+  actual-result: |
+    Адаптивности нет для всех устройств 
+    Скриншот приложен в папке bugreports\v1\adaptive_page_bug.png

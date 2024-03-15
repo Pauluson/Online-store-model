@@ -1,0 +1,132 @@
+---
+test-cases:
+  - summary: |
+      Проверка добавление товара в корзину
+    status: pass
+
+  - summary: |
+      Проверка фильтров для товаров
+    status: pass
+
+  - summary: |
+      Проверка поиска по ключевому слову и категории
+    status: pass
+
+  - summary: |
+      Проверка смены языка
+    status: pass
+
+	- summary: |
+      Проверка функции сессий
+    status: fail
+
+  - summary: |
+      Проверка уведомления об использовании сессий
+    status: fail
+
+	- summary: |
+    	Проверка очистки корзины
+  	status: pass
+
+  - summary: |
+      Проверка возможности перехода из корзины на страницу с товарами
+    status: pass
+
+  - summary: |
+      Проверка пагинации товаров
+    status: pass
+
+	- summary: |
+      Проверка возможности вернутся на главную страницу
+    status: pass
+
+bugreports:
+  - summary: |
+      Нет изображений флагов языков
+    environment: |
+      Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
+    	ОС Windows 10
+    steps-to-reproduce: |
+      1. Открыть главную страницу https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+			2. Нажать на конпку «Language»
+    expected-result: |
+      Изображения для флагов языков отображаются
+    actual-result: |
+      Изображений для флагов языков не отображаются
+			Скриншот приложен в папке bugreports\v2\language_bug.png
+
+	- summary: |
+      Некорректная работа кнопки «Store» 
+    environment: |
+      Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
+    	ОС Windows 10
+    steps-to-reproduce: |
+      1. Открыть главную страницу https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+			2. Добавить товар по конпку «Add cart»
+			3. Нажать на конпку «Cart»
+			4. Нажать на кнопку «Clear cart»
+			5. Нажать на кнопку «Store»
+    expected-result: |
+      Товары удалены из корзины, произведен переход на главную страницу
+    actual-result: |
+      Произведен переход на главную страницу, но товары не удалены
+
+ 	- summary: |
+      Произвольная смена языка
+    environment: |
+      Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
+    	ОС Windows 10
+    steps-to-reproduce: |
+      1. Открыть главную страницу https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+			2. Нажать на конпку «Language»
+			3. Выбрать «Russian»
+			4. Нажать на кнопку «Магазин»
+    expected-result: |
+      Язык отображение остался «Russian»
+    actual-result: |
+      Язык сменился на «English»
+
+	- summary: |
+      Неправильная работа фильтра «In Stock»
+    environment: |
+      Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
+    	ОС Windows 10
+    steps-to-reproduce: |
+      1. Открыть главную страницу https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+			2. Убрать чекбокс на фильтре «In Stock»
+    expected-result: |
+      Отобразилось собщение "Nothing found!"
+    actual-result: |
+      Сообщения нет, пропала кнопка пагинации «Next»
+			Скриншот приложен в папке bugreports\v2\filter_in_stock_bug.png
+	
+	- summary: |
+      Едет верстка карточки товара при поиске по ключевому слову 
+    environment: |
+      Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
+    	ОС Windows 10
+    steps-to-reproduce: |
+      1. Открыть главную страницу https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+			2. В поле «Search» ввести "iphone 9"
+    expected-result: |
+      Отображение карточки товара коректное
+    actual-result: |
+      Съехала вертска, училичилась ширина поля «Search»
+			Скриншот приложен в папке bugreports\v2\card_appearance_bug.png
+		
+	- summary: |
+      Некоректная работа фильтра «Category» при выборе пустого значения  
+    environment: |
+      Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
+    	ОС Windows 10
+    steps-to-reproduce: |
+      1. Открыть главную страницу https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+			2. Нажать на кнопку «Category»
+			3. Выбрать пустое значение 
+			4. Выбрать значение "Apple" в фильтре «Brand»
+			5. В поле «Search» ввести "iphone 9" 
+    expected-result: |
+      Найден товар с заданными параметрами 
+    actual-result: |
+      Фильтрация не произошла, нет кнопки пагинации «Next»
+			Скриншот приложен в папке bugreports\v2\category_filter_bug.png
