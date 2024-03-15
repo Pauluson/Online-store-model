@@ -1,0 +1,129 @@
+---
+- summary: |
+    Отображается неправильная картинка флага английского языка
+  environment: |
+    Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
+    ОС Windows 10
+  steps-to-reproduce: |
+    1. Зайти на главную страницу https://hexlet-products-store.vercel.app
+    2. Нажать на кнопку «Language»
+  expected-result: |
+    Оторажается картинка флага английского языка
+  actual-result: |
+    Картинка флага не отображается
+    Скриншот приложен в папке bugreports\language_bug.png
+
+- summary: |
+    Товар, добавленный в корзину не отображается, после повторного захода на сайт
+  environment: |
+    Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
+    ОС Windows 10
+  steps-to-reproduce: |
+    1. Отркыть страницу https://hexlet-products-store.vercel.app/
+    2. Добавить товар в корзину по кнопке «Add Cart»
+    3. Закрыть страницу
+    4. Открыть страницу https://hexlet-products-store.vercel.app/cart
+  expected-result: |
+    Товар отображается в корзине
+  actual-result: |
+    Корзина пуста, добавленный не отображается
+
+  - summary: |
+    Некоректный переход, при несуществующем url
+  environment: |
+    Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
+    ОС Windows 10
+  steps-to-reproduce: |
+    1. Отркыть страницу https://hexlet-products-store.vercel.app/example
+  expected-result: |
+    Прозошел редирект на главную страницу
+  actual-result: |
+    Редирект не выполнен, отображается header и footer сайта
+    Скриншот приложен в папке bugreports\redirect_bug.png
+  
+  - summary: |
+    Нет возможности сбросить или очистить фильтр «Category»
+  environment: |
+    Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
+    ОС Windows 10
+  steps-to-reproduce: |
+    1. Отркыть главную страницу
+    2. Нажать на кнопку «Category»
+    3. Выбрать «laptops»
+    4. Нажать на кнопку «Category»
+  expected-result: |
+    Есть возможность сбросить или очистить фильтр
+  actual-result: |
+    Фильтр остался
+
+  - summary: |
+    Нет возможности сбросить или очистить фильтр «Category»
+  environment: |
+    Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
+    ОС Windows 10
+  steps-to-reproduce: |
+    1. Отркыть главную страницу
+    2. Нажать на кнопку «Category»
+    3. Выбрать «laptops»
+    4. Нажать на кнопку «Category»
+  expected-result: |
+    Есть возможность сбросить или очистить фильтр
+  actual-result: |
+    Фильтр остался
+
+  - summary: |
+    Неправильная работа фильтра «Price»
+  environment: |
+    Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
+    ОС Windows 10
+  steps-to-reproduce: |
+    1. Отркыть главную страницу
+    2. Ввести в поле «From» фильтра «Price» 1000
+    3. Ввести в поле «To» фильтра «Price» 2000
+  expected-result: |
+    Отображаются товары, стоимость которых входит в граничные значения, с учетом скидки
+  actual-result: |
+    Отображаются товары без учета скидки
+    Скриншот приложен в папке bugreports\price_filter_bug.png
+  
+  - summary: |
+    Едет верстка в спике товаров на странице корзины
+  environment: |
+    Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
+    ОС Windows 10
+  steps-to-reproduce: |
+    1. Добавить несколько товаров в корзину
+    2. Открыть страницу корзины
+  expected-result: |
+    Верстка страницы корзины отображается корректно
+  actual-result: |
+    В списке товаров, колчиство товара отображается не равномерно
+    Скриншот приложен в папке bugreports\list_of_car_bug.png
+  
+  - summary: |
+    Невозможно закрыть карточку заказа по нажатию на крестик
+  environment: |
+    Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
+    ОС Windows 10
+  steps-to-reproduce: |
+    1. Открыть страницу корзины
+    2. Нажать на кнопку «Checkout»
+    3. Нажать на крестик
+  expected-result: |
+    Карточка заказа успешно закрылась
+  actual-result: |
+    Карточка заказа не закрыта
+  
+  - summary: |
+    Едет верстка в карточке заказа
+  environment: |
+    Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
+    ОС Windows 10
+  steps-to-reproduce: |
+    1. Открыть страницу корзины
+    2. Нажать на кнопку «Checkout»
+  expected-result: |
+    Все отображается корректно
+  actual-result: |
+    Количество товаров в колонке отображается не равномерно
+    Скриншот приложен в папке bugreports\order_list_bug.png
