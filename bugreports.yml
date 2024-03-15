@@ -28,7 +28,7 @@
   actual-result: |
     Корзина пуста, добавленный не отображается
 
-  - summary: |
+- summary: |
     Некоректный переход, при несуществующем url
   environment: |
     Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
@@ -41,7 +41,7 @@
     Редирект не выполнен, отображается header и footer сайта
     Скриншот приложен в папке bugreports\v1\redirect_bug.png
   
-  - summary: |
+- summary: |
     Нет возможности сбросить или очистить фильтр «Category»
   environment: |
     Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
@@ -56,7 +56,7 @@
   actual-result: |
     Фильтр остался
 
-  - summary: |
+- summary: |
     Нет возможности сбросить или очистить фильтр «Category»
   environment: |
     Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
@@ -71,7 +71,7 @@
   actual-result: |
     Фильтр остался
 
-  - summary: |
+- summary: |
     Неправильная работа фильтра «Price»
   environment: |
     Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
@@ -86,7 +86,7 @@
     Отображаются товары без учета скидки
     Скриншот приложен в папке bugreports\v1\price_filter_bug.png
   
-  - summary: |
+- summary: |
     Едет верстка в спике товаров на странице корзины
   environment: |
     Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
@@ -100,7 +100,7 @@
     В списке товаров, колчиство товара отображается не равномерно
     Скриншот приложен в папке bugreports\v1\list_of_car_bug.png
   
-  - summary: |
+- summary: |
     Невозможно закрыть карточку заказа по нажатию на крестик
   environment: |
     Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
@@ -114,7 +114,7 @@
   actual-result: |
     Карточка заказа не закрыта
   
-  - summary: |
+- summary: |
     Едет верстка в карточке заказа
   environment: |
     Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
@@ -128,7 +128,7 @@
     Количество товаров в колонке отображается не равномерно
     Скриншот приложен в папке bugreports\v1\order_list_bug.png
   
-  - summary: |
+- summary: |
     Едет верстка в карточке товара при большом описании
   environment: |
     Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
@@ -142,7 +142,7 @@
     Кнопка «Add to cart» вышла за рамки карточки
     Скриншот приложен в папке bugreports\v1\card_bug.png
 
-  - summary: |
+- summary: |
     Едет верстка при ширине экрана меньше 990px
   environment: |
     Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
