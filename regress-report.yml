@@ -1,28 +1,68 @@
 ---
 test-cases:
   - summary: |
-      Проверка добавление товара в корзину
+      Проверка добавление нескольких одинаковых товаров в корзину
     status: pass
 
   - summary: |
-      Проверка фильтров для товаров
+      Проверка добавление нескольких разных товаров в корзину
+    status: pass
+  
+  - summary: |
+      Проверка оформление заказа
+    status: fail
+
+  - summary: |
+      Проверка выбора оплаты заказа
     status: pass
 
   - summary: |
-      Проверка поиска по ключевому слову и категории
+      Проверка оплаты заказа
     status: pass
+
+  - summary: |
+      Проверка просмотра списка товарова
+    status: fail
+
+  - summary: |
+      Проверка просмотра подробной информации о товаре
+    status: pass
+
+  - summary: |
+      Проверка фильтра «Brand»
+    status: pass
+
+  - summary: |
+      Проверка фильтра «Price»
+    status: pass
+
+  - summary: |
+      Проверка поля «Search»
+    status: pass
+
+  - summary: |
+      Проверка фильтра «Category»
+    status: pass
+
+  - summary: |
+      Проверка фильтра «In Stock»
+    status: fail
 
   - summary: |
       Проверка смены языка
-    status: pass
+    status: fail
 
   - summary: |
-      Проверка функции сессий
-    status: fail
+      Проверка сохранения корзины в сессии браузера
+    status: pass
 
   - summary: |
       Проверка уведомления об использовании сессий
     status: fail
+
+  - summary: |
+      Проверка удаления товара из корзины
+    status: pass
 
   - summary: |
       Проверка очистки корзины
@@ -39,6 +79,38 @@ test-cases:
   - summary: |
       Проверка возможности вернутся на главную страницу
     status: pass
+
+  - summary: |
+      Проверка гиперссылки на странице товара
+    status: pass
+
+  - summary: |
+      Проверка мобильной версии сайта
+    status: fail
+
+  - summary: |
+      Проверка кроссбраузернности
+    status: pass
+
+  - summary: |
+      Проверка наличия SPA
+    status: fail
+
+  - summary: |
+      Проверка появление сообщения после поиска
+    status: fail
+
+  - summary: |
+      Проверка невозможности оформить заказ
+    status: pass
+
+  - summary: |
+      Проверка отсутсвия наличия товара
+    status: fail
+
+  - summary: |
+      Проверка отсутсвия наличия товара по фильтру «Price»
+    status: fail
 
 bugreports:
   - summary: |
@@ -68,8 +140,10 @@ bugreports:
       5. Нажать на кнопку «Store»
     expected-result: |
       Товары удалены из корзины, произведен переход на главную страницу
+      Главаная страница динамически подгрузилась
     actual-result: |
       Произведен переход на главную страницу, но товары не удалены
+      Страница перезагрузилась
 
   - summary: |
       Произвольная смена языка
@@ -130,3 +204,30 @@ bugreports:
     actual-result: |
       Фильтрация не произошла, нет кнопки пагинации «Next»
       Скриншот приложен в папке bugreports\v2\category_filter_bug.png
+
+  - summary: |
+      Некоректная работа фильтра «Price» 
+    environment: |
+      Google Chrome Version 123.0.6312.58 (Official Build) (64-bit)
+      ОС Ubuntu 20.04.6 LTS
+    steps-to-reproduce: |
+      1. Открыть главную страницу https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      2. Вввести "111111111" в поле «From» фильтра «Price» 
+      3. Вввести "222222222" в поле «From» фильтра «Price»
+    expected-result: |
+      Появилось сообщение «Nothing found!» 
+    actual-result: |
+      Сообщения нет, остался весь список товаров
+
+  - summary: |
+      Перезагрузка страницы на перходе по гиперссылке
+    environment: |
+      Google Chrome Version 123.0.6312.58 (Official Build) (64-bit)
+      ОС Ubuntu 20.04.6 LTS
+    steps-to-reproduce: |
+      1. Открыть главную страницу любого товара
+      2. Нажать на гиперссылку с категорией
+    expected-result: |
+      Произошел редирект и страница динамически подгрузилась
+    actual-result: |
+      Произошел редирект, но страница полность перезагрузилась

@@ -57,21 +57,6 @@
     Фильтр остался
 
 - summary: |
-    Нет возможности сбросить или очистить фильтр «Category»
-  environment: |
-    Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
-    ОС Windows 10
-  steps-to-reproduce: |
-    1. Отркыть главную страницу
-    2. Нажать на кнопку «Category»
-    3. Выбрать «laptops»
-    4. Нажать на кнопку «Category»
-  expected-result: |
-    Есть возможность сбросить или очистить фильтр
-  actual-result: |
-    Фильтр остался
-
-- summary: |
     Неправильная работа фильтра «Price»
   environment: |
     Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
@@ -156,3 +141,16 @@
   actual-result: |
     Адаптивности нет для всех устройств 
     Скриншот приложен в папке bugreports\v1\adaptive_page_bug.png
+
+- summary: |
+    Не работает гиперссылка в карточке товара
+  environment: |
+    Google Chrome Version 123.0.6312.58 (Official Build) (64-bit)
+    ОС Ubuntu 20.04.6 LTS
+  steps-to-reproduce: |
+    1. Открыть страницу с товара
+    2. Нажать на гиперссылку с категорией
+  expected-result: |
+    Произошел редирект на страницу со списком товаров, отфильтрованный по категории в гиперссылке
+  actual-result: |
+    Редирект не произошел
